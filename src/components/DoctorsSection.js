@@ -1,5 +1,6 @@
 import React from "react";
 import DoctorProfile from './DoctorProfile';
+import doctorsData from './doctorsData'; 
 
 
 function DoctorsSection({ doctors }){
