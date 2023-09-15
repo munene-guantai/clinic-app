@@ -1,37 +1,40 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "./NavBar";
-import DoctorsSection from "./DoctorsSection";
+import DoctorsSection from "../DoctorsSection";
 import FeedBack from "./FeedBack";
 import Footer from "./Footer";
 import AboutUs from "./AboutUs";
 import Login from "./Login";
 import Signup from "./Signup";
-import BookingAppointment from "./BookAppointment";
+import BookAppointment from "./BookAppointment";
 
 
-function App(){
+function Home() {
+  return <h2>Welcome to our website!</h2>;
+}
+
+function App() {
   return (
     <Router>
       <div>
-       <NavBar />
-       <DoctorsSection />
-      <Switch>
-        <Route path="/navbar" exact component={NavBar} />
-        <Route path="/doctorssection" exact component={DoctorsSection} />
-        <Route path="/feedback" exact component={FeedBack} />
-        <Route path="/footer" exact component={Footer} />
-        <Route path="/aboutus" exact component={AboutUs} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/signup" exact component={Signup} />
-        <Route path="/bookingappointment" exact component={BookingAppointment} />
-      </Switch>
-      <FeedBack />
-      <Footer />
+        <NavBar />
+        <Routes>
+          <Route path="/doctorssection" element={<DoctorsSection />} />
+          <Route path="/feedback" element={<FeedBack />} />
+          <Route path="/footer" element={<Footer />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/sign-up" element={<Signup />} />
+          <Route path="/book-appointment" element={<BookAppointment />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+        <DoctorsSection />
+        <FeedBack />
+        <Footer />
       </div>
     </Router>
   );
 }
-
 
 export default App;
